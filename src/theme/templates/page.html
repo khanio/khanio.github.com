@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block description %} Zakiullah Khan Mohammed {% endblock %}
+
+{% block content %}
+<article class="post">
+	<div class="box-wrap">
+		<div class="box">
+			<header>
+				<h2 class="post-title"><a href="{{ SITEURL }}/{{ page.url }}" title="Permalink to {{ page.title }}" rel="bookmark">{{ page.title }}</a></h2>
+			</header>
+			<div class="post-content">
+				<p>{{ page.content }}</p>
+			</div>
+			<div class="post-navigation-wrap">
+				<ul class="post-navigation clearfix">
+					<li><a href="{{ SITEURL }}" rel="prev"><strong><i class="icon-arrow-left"></i></strong>&nbsp&nbspBack to Blog</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</article>
+{% endblock %}

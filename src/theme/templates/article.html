@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block description %} Zakiullah Khan Mohammed {% endblock %}
+
+{% block content %}
+<article class="post">
+	<div class="box-wrap">
+		<div class="box">
+			<header>
+				<div class="date-title" title="{{ article.date.isoformat() }}">{{ article.locale_date }}</div>
+				<h2 class="post-title"><a href="{{ SITEURL }}/{{ article.url }}" title="Permalink to {{ article.title }}" rel="bookmark">{{ article.title }}</a></h2>
+			</header>
+			<!--<a class="featured-image" href="" title="" rel="bookmark"><img width="1200" height="600" src="http://cdn3.okaythemes.com/verb/files/2013/01/feet.jpg" alt="feet"></a>-->
+			<div class="post-content">
+				<p>{{ article.content }}</p>
+				<div class="meta-wrap">
+					<ul class="meta">
+						{% if not article.category == 'posts' %}
+						<li>Posted In: <a href="{{ SITEURL }}/{{ article.category.url }}" rel="category tag">{{ article.category }}</a></li>
+						{% endif %}
+						{% if article.tags %}
+						<li>Tagged In:{% for tag in article.tags %} <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>&nbsp&nbsp{% endfor %}</li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+			<div class="post-navigation-wrap">
+				<ul class="post-navigation clearfix">
+					<li><a href="{{ SITEURL }}" rel="prev"><strong><i class="icon-arrow-left"></i></strong>&nbsp&nbspBack to Blog</a></li>
+				</ul>
+			</div>
+			{% if DISQUS_SITENAME %}
+			<div class="post-comments">
+				<div id="disqus_thread"></div>
+				<script type="text/javascript">
+					var disqus_identifier = "{{ article.url }}";
+					(function() {
+						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = 'http://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+				</script>
+				<noscript>Please enable JavaScript to view <a href="http://disqus.com/?ref_noscript">comments</a>.</noscript>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</article>
+{% endblock %}

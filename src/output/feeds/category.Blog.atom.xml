@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>KhanIO</title><link href="http://www.khanio.com/" rel="alternate"></link><link href="http://www.khanio.com/feeds/category.Blog.atom.xml" rel="self"></link><id>http://www.khanio.com/</id><updated>2013-04-09T17:10:00+08:00</updated><entry><title>Hello World</title><link href="http://www.khanio.com/posts/2013/04/09/hello-world/" rel="alternate"></link><updated>2013-04-09T17:10:00+08:00</updated><author><name>Zakiullah Khan Mohammed</name></author><id>tag:www.khanio.com,2013-04-09:posts/2013/04/09/hello-world/</id><summary type="html">&lt;p&gt;This is our first post!! A classic&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello world!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;See you soon ;)&lt;/p&gt;</summary><category term="helloworld"></category><category term="blog"></category><category term="first"></category></entry></feed>
