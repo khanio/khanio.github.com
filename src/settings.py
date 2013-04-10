@@ -45,7 +45,7 @@ TAG_FEED_ATOM = 'feeds/tag.%s.atom.xml'
 PAGE_DIR = ('pages/')
 ARTICLE_DIR = ('posts/')
 
-GOOGLE_ANALYTICS = ''
+GOOGLE_ANALYTICS = 'UA-40023432-1'
 DISQUS_SITENAME = 'khanio'
 TWITTER_USERNAME = 'khan_io'
 GITHUB_USERNAME = 'khanio'
