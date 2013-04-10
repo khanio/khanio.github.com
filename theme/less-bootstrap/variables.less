@@ -6,14 +6,6 @@
 // Global values
 // --------------------------------------------------
 
-// Theme colors
-// -------------------------
-@themeColorLight:		#EFEDE9;
-@themeColorDark:		#AAA28C;
-@themeColorLink:		#FC6341;
-@themeColorPostText:    #6A6359;
-@themeColorPostTextLight: #AAA;
-
 
 // Grays
 // -------------------------
@@ -40,28 +32,28 @@
 
 // Scaffolding
 // -------------------------
-@bodyBackground:        @themeColorLight; // @white;
-@textColor:             @themeColorDark; // @grayDark;
+@bodyBackground:        @white;
+@textColor:             @grayDark;
 
 
 // Links
 // -------------------------
-@linkColor:             @themeColorLink; // #08c;
+@linkColor:             #08c;
 @linkColorHover:        darken(@linkColor, 15%);
 
 
 // Typography
 // -------------------------
-@sansFontFamily:        "Open Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
-@baseFontSize:          12px;
+@baseFontSize:          14px;
 @baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        18px;
+@baseLineHeight:        20px;
 @altFontFamily:         @serifFontFamily;
 
-@headingsFontFamily:    "Montserrat","Helvetica Neue", Helvetica, Arial, sans-serif; // inherit; // empty to use BS default, @baseFontFamily
+@headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
 @headingsFontWeight:    bold;    // instead of browser default, bold
 @headingsColor:         inherit; // empty to use BS default, @textColor
 
@@ -188,7 +180,7 @@
 @navbarCollapseWidth:             979px;
 @navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
 
-@navbarHeight:                    110px;
+@navbarHeight:                    40px;
 @navbarBackgroundHighlight:       #ffffff;
 @navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
 @navbarBorder:                    darken(@navbarBackground, 12%);
@@ -203,13 +195,13 @@
 @navbarBrandColor:                @navbarLinkColor;
 
 // Inverted navbar
-@navbarInverseBackground:                @themeColorLight; // #111111;
-@navbarInverseBackgroundHighlight:       @themeColorLight; // #222222;
-@navbarInverseBorder:                    @themeColorLight; // #252525;
+@navbarInverseBackground:                #111111;
+@navbarInverseBackgroundHighlight:       #222222;
+@navbarInverseBorder:                    #252525;
 
-@navbarInverseText:                      @themeColorDark; // @grayLight;
-@navbarInverseLinkColor:                 @themeColorDark; // @grayLight;
-@navbarInverseLinkColorHover:            darken(@themeColorDark, 15%); // @white;
+@navbarInverseText:                      @grayLight;
+@navbarInverseLinkColor:                 @grayLight;
+@navbarInverseLinkColorHover:            @white;
 @navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
 @navbarInverseLinkBackgroundHover:       transparent;
 @navbarInverseLinkBackgroundActive:      @navbarInverseBackground;
