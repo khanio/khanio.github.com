@@ -46,7 +46,7 @@ PAGE_DIR = ('pages/')
 ARTICLE_DIR = ('posts/')
 
 GOOGLE_ANALYTICS = 'UA-40023432-1'
-DISQUS_SITENAME = 'khanio'
+DISQUS_SITENAME = 'khan-io'
 TWITTER_USERNAME = 'khan_io'
 GITHUB_USERNAME = 'khanio'
 GOOGLE_PLUS_LINK = ''
