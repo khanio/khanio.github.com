@@ -76,11 +76,9 @@ FILES_TO_COPY = (
 
 MENUITEMS = (
 	('Home','index.html'),
-	('Philosophy', 'pages/philosophy.html'),
 	('Resume', 'pages/resume.html'),
 	('Projects', 'pages/projects.html'),
 	('Archive', 'archives.html'),
-	('Contact Me', 'pages/contact-me.html'),
 )
 
 PLUGINS=['pelican.plugins.sitemap',]
