@@ -4,8 +4,8 @@ PELICANOPTS=
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
-CONFFILE=$(BASEDIR)/settings.py
-PUBLISHCONF=$(BASEDIR)/publishconf.py
+CONFFILE=$(BASEDIR)/local_settings.py
+PUBLISHCONF=$(BASEDIR)/settings.py
 
 FTP_HOST=localhost
 FTP_USER=anonymous

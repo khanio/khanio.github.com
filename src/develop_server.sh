@@ -8,7 +8,7 @@ PELICANOPTS=
 BASEDIR=$(pwd)
 INPUTDIR=$BASEDIR/content
 OUTPUTDIR=$BASEDIR/output
-CONFFILE=$BASEDIR/settings.py
+CONFFILE=$BASEDIR/local_settings.py
 
 ###
 # Don't change stuff below here unless you are sure
