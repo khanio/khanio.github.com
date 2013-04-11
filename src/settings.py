@@ -49,8 +49,7 @@ GOOGLE_ANALYTICS = 'UA-40023432-1'
 DISQUS_SITENAME = 'khanio'
 TWITTER_USERNAME = 'khan_io'
 GITHUB_USERNAME = 'khanio'
-GOOGLE_PLUS_LINK = ''
-LINKEDIN_LINK = ''
+LINKEDIN_LINK = 'http://sg.linkedin.com/in/khanio/'
 GOOGLE_PLUS_LINK = 'https://plus.google.com/110264619019212538944/'
 
 REVERSE_ARCHIVE_ORDER = True
