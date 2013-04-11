@@ -1,6 +1,6 @@
 Title: Hello World
 Date: 2013-04-09 17:10
-Tags: helloworld, blog, first
+Tags: helloworld, blog
 Category: Blog
 Slug: hello-world
 Author: Zakiullah Khan Mohammed
