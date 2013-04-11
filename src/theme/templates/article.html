@@ -26,33 +26,7 @@
 				<p class="article-summary">{{ article.summary }}</p>
 				<p>{{ article.content }}</p>
 				<div class="meta-wrap">
-					<!-- tweet button -->  
-					<div style="float:left;">
-						<a href="https://twitter.com/share" class="twitter-share-button" data-via="khan_io">Tweet</a>
-						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-					</div>
- 					<!-- tweet button --> 
-
-					<!-- facebook like button-->
-					<div style="float:left;">
-						<div class="fb-like" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-					</div>
-					<!-- facebook like button-->
-
-					<!-- Google +1 button -->  
-					<div style="float:left; padding-left: 10px;">
-						<!-- Place this tag where you want the +1 button to render -->  
-						<g:plusone size="medium" annotation="inline" width="60"></g:plusone> 
-
-						<!-- Place this tag after the last +1 button tag. -->
-						<script type="text/javascript">
-						  (function() {
-						    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-						    po.src = 'https://apis.google.com/js/plusone.js';
-						    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-						  })();
-						</script>
-					<!-- Google +1 button -->
+					<div id="share-box" data-url="{{ SITEURL }}/{{ article.url }}" data-text="{{article.title}}" data-title="share"></div>
 				</div>
 			</div>
 			<div class="post-navigation-wrap">
