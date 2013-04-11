@@ -16,7 +16,7 @@ THEME="theme"
 DEFAULT_CATEGORY = 'misc'
 ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
-RELATIVE_URLS = True
+RELATIVE_URLS = False
 MARKUP = 'md'
 
 # Blogroll
