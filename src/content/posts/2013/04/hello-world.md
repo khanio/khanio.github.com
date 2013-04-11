@@ -4,7 +4,7 @@ Tags: helloworld, blog, first
 Category: Blog
 Slug: hello-world
 Author: Zakiullah Khan Mohammed
-Summary: Introductory post to the blog
+Summary: Aloha Earthlings !! I'm back ! This time with a new blog, new URL and a one-post-a-week goal.
 
 This is our first post!! A classic
 
