@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block description %} Zakiullah Khan Mohammed {% endblock %}
+{% block description %} {{ article.title }} | KhanIO {% endblock %}
 
 {% block content %}
 <article class="post">
@@ -8,11 +8,6 @@
 			<header>
 				<div class="date-title" title="{{ article.date.isoformat() }}">{{ article.locale_date }}</div>
 				<h2 class="post-title"><a href="{{ SITEURL }}/{{ article.url }}" title="Permalink to {{ article.title }}" rel="bookmark">{{ article.title }}</a></h2>
-			</header>
-			<!--<a class="featured-image" href="" title="" rel="bookmark"><img width="1200" height="600" src="http://cdn3.okaythemes.com/verb/files/2013/01/feet.jpg" alt="feet"></a>-->
-			<div class="post-content">
-				<p class="article-summary">{{ article.summary }}</p>
-				<p>{{ article.content }}</p>
 				<div class="meta-wrap">
 					<ul class="meta">
 						{% if not article.category == 'posts' %}
@@ -23,6 +18,12 @@
 						{% endif %}
 					</ul>
 				</div>
+			</header>
+
+			<!--<a class="featured-image" href="" title="" rel="bookmark"><img width="1200" height="600" src="http://cdn3.okaythemes.com/verb/files/2013/01/feet.jpg" alt="feet"></a>-->
+			<div class="post-content">
+				<p class="article-summary">{{ article.summary }}</p>
+				<p>{{ article.content }}</p>
 			</div>
 			<div class="post-navigation-wrap">
 				<ul class="post-navigation clearfix">
