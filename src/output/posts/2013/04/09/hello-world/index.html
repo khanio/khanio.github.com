@@ -76,9 +76,7 @@
 
 <p>See you soon ;)</p></p>
 				<div class="meta-wrap">
-					<div id="share-box">
-						
-  					</div>
+					<div id="share-box" data-url="../../../../../posts/2013/04/09/hello-world/" data-text="Hello World" data-title="share"></div>
 				</div>
 			</div>
 			<div class="post-navigation-wrap">
@@ -189,7 +187,25 @@ pageTracker._trackPageview();
         <script src="../../../../../theme/js/main.js"></script>
         
         <script>
-            
+            $('#share-box').sharrre({
+              share: {
+                googlePlus: true,
+                facebook: true,
+                twitter: true
+              },
+              buttons: {
+                googlePlus: {size: 'tall'},
+                facebook: {layout: 'box_count'},
+                twitter: {count: 'vertical', via: 'khan_io'}
+              },
+              hover: function(api, options){
+                $(api.element).find('.buttons').show();
+              },
+              hide: function(api, options){
+                $(api.element).find('.buttons').hide();
+              },
+              enableTracking: true
+            });
         </script>
         
     </body>
