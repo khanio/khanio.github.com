@@ -35,7 +35,8 @@ SOCIAL = (('Twitter', 'https://twitter.com/khan_io'),
           ('Instagram', 'https://instagram.com/khanio'),
           ('AngelList', 'https://angel.co/khanio'),
           ('Pinterest','https://pinterest.com/khanio'),
-          ('Vimeo','https://vimeo.com/khanio'),)
+          ('Vimeo','https://vimeo.com/khanio'),
+          ('SpeakerDeck','https://speakerdeck.com/khanio'),)
 
 DEFAULT_PAGINATION = 5
 
