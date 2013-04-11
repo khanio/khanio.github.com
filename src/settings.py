@@ -32,7 +32,8 @@ SOCIAL = (('Twitter', 'https://twitter.com/khan_io'),
           ('Google +', 'https://plus.google.com/110264619019212538944'),
           ('GitHub', 'https://github.com/khanio'),
           ('Email', 'mailto:mail@khanio.com'),
-          ('Instagram', 'https://instagram.com/khanio'),)
+          ('Instagram', 'https://instagram.com/khanio'),
+          ('AngelList', 'https://angel.co/khanio'),)
 
 DEFAULT_PAGINATION = 5
 
