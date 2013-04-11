@@ -93,24 +93,39 @@
         <script src="{{ SITEURL }}/theme/js/main.js"></script>
         
         <script>
-            $('#share-box').sharrre({
+            $('#twitter').sharrre({
                 share: {
-                    googlePlus: true,
-                    facebook: true,
                     twitter: true
                 },
-                buttons: {
-                    googlePlus: {size: 'tall'},
-                    facebook: {layout: 'box_count'},
-                    twitter: {count: 'vertical', via: 'khan_io'}
+                enableHover: false,
+                enableTracking: true,
+                buttons: { twitter: {via: '{{ TWITTER_USERNAME }}'}},
+                click: function(api, options){
+                    api.simulateClick();
+                    api.openPopup('twitter');
+                }
+            });
+            $('#facebook').sharrre({
+                share: {
+                    facebook: true
                 },
-                hover: function(api, options){
-                    $(api.element).find('.buttons').show();
+                enableHover: false,
+                enableTracking: true,
+                click: function(api, options){
+                    api.simulateClick();
+                    api.openPopup('facebook');
+                }
+            });
+            $('#googleplus').sharrre({
+                share: {
+                    googlePlus: true
                 },
-                hide: function(api, options){
-                    $(api.element).find('.buttons').hide();
-                },
-                enableTracking: true
+                enableHover: false,
+                enableTracking: true,
+                click: function(api, options){
+                    api.simulateClick();
+                    api.openPopup('googlePlus');
+                }
             });
         </script>
         
