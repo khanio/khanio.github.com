@@ -6,7 +6,7 @@ Slug: hello-world
 Author: Zakiullah Khan Mohammed
 Summary: Aloha Earthlings !! I'm back ! This time with a new blog, new URL and a one-post-a-week goal.
 
-This is our first post!! A classic
+This is my first post!! A classic
 
     print("Hello world!")
 
