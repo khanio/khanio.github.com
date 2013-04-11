@@ -59,6 +59,7 @@ DAY_ARCHIVE_SAVE_AS = True
 DISPLAY_PAGES_ON_MENU = False
 
 FILES_TO_COPY = (
+    ('extra/public.key', 'files/public.key'),
     ('extra/robots.txt', 'robots.txt'),
     ('extra/humans.txt', 'humans.txt'),
     ('extra/CNAME', 'CNAME'),
