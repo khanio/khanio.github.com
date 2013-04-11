@@ -76,10 +76,10 @@ FILES_TO_COPY = (
 )
 
 MENUITEMS = (
-	('Home','index.html'),
+	('Home','http://www.khanio.com/index.html'),
 #	('Resume', 'pages/resume.html'),
 #	('Projects', 'pages/projects.html'),
-	('Archive', 'archives.html'),
+	('Archive', 'http://www.khanio.com/archives.html'),
   ('Subscribe', 'http://feeds.feedburner.com/Khanio'),
 )
 
