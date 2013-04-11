@@ -80,6 +80,7 @@ MENUITEMS = (
 #	('Resume', 'pages/resume.html'),
 #	('Projects', 'pages/projects.html'),
 	('Archive', 'archives.html'),
+  ('Subscribe', 'http://feeds.feedburner.com/Khanio'),
 )
 
 PLUGINS=['pelican.plugins.sitemap',]
