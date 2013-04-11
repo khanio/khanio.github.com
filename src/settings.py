@@ -77,8 +77,8 @@ FILES_TO_COPY = (
 
 MENUITEMS = (
 	('Home','index.html'),
-	('Resume', 'pages/resume.html'),
-	('Projects', 'pages/projects.html'),
+#	('Resume', 'pages/resume.html'),
+#	('Projects', 'pages/projects.html'),
 	('Archive', 'archives.html'),
 )
 
