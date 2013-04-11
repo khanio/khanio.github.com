@@ -29,7 +29,7 @@ LINKS =  (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
 SOCIAL = (('Twitter', 'https://twitter.com/khan_io'),
           ('LinkedIn', 'https://linkedin.com/in/khanio'),
           ('Facebook', 'https://facebook.com/in/mkhanio'),
-          ('Google +', 'https://plus.google.com/khanio'),
+          ('Google +', 'https://plus.google.com/110264619019212538944'),
           ('GitHub', 'https://github.com/khanio'),
           ('Email', 'mailto:mail@khanio.com'),)
 
