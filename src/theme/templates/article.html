@@ -11,11 +11,12 @@
 				<h2 class="post-title"><a href="{{ SITEURL }}/{{ article.url }}" title="Permalink to {{ article.title }}" rel="bookmark">{{ article.title }}</a></h2>
 				<div class="meta-wrap">
 					<ul class="meta">
+						<li>By: <a rel="author" href="{{ GOOGLEPLUS_URL }}?rel=author">{{ author }}</a></li>
 						{% if not article.category == 'posts' %}
-						<li>Posted In: <a href="{{ SITEURL }}/{{ article.category.url }}" rel="category tag">{{ article.category }}</a></li>
+						<li>Posted In: <a href="{{ SITEURL }}/{{ article.category.url }}" rel="category">{{ article.category }}</a></li>
 						{% endif %}
 						{% if article.tags %}
-						<li>Tagged In:{% for tag in article.tags %} <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>&nbsp&nbsp{% endfor %}</li>
+						<li>Tagged In:{% for tag in article.tags %} <a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">{{ tag }}</a>&nbsp&nbsp{% endfor %}</li>
 						{% endif %}
 					</ul>
 				</div>

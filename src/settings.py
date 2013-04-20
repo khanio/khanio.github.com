@@ -19,6 +19,8 @@ ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 RELATIVE_URLS = False
 MARKUP = 'md'
 
+GOOGLEPLUS_URL = "https://plus.google.com/110264619019212538944"
+
 # Blogroll
 LINKS =  (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
           ('Python.org', 'http://python.org'),
