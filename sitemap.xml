@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://www.khanio.com/index.html</loc>
-<lastmod>2013-04-20T17:00:22-00:00</lastmod>
+<lastmod>2013-04-20T17:46:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/archives.html</loc>
-<lastmod>2013-04-20T17:00:22-00:00</lastmod>
+<lastmod>2013-04-20T17:46:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/tags.html</loc>
-<lastmod>2013-04-20T17:00:22-00:00</lastmod>
+<lastmod>2013-04-20T17:46:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/categories.html</loc>
-<lastmod>2013-04-20T17:00:22-00:00</lastmod>
+<lastmod>2013-04-20T17:46:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -60,6 +60,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://www.khanio.com/posts/2013/04/20/rapidssl-nginx-web-server-setup/</loc>
+<lastmod>2013-04-20T17:17:00-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://www.khanio.com/posts/2013/04/09/hello-world/</loc>
 <lastmod>2013-04-09T17:10:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -67,29 +74,64 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://www.khanio.com/category/blog.html</loc>
-<lastmod>2013-04-20T17:00:22-00:00</lastmod>
+<loc>http://www.khanio.com/category/administration.html</loc>
+<lastmod>2013-04-20T17:46:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.khanio.com/tag/blog.html</loc>
-<lastmod>2013-04-20T17:00:22-00:00</lastmod>
+<loc>http://www.khanio.com/category/blog.html</loc>
+<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://www.khanio.com/tag/ssl.html</loc>
+<lastmod>2013-04-20T17:46:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/tag/helloworld.html</loc>
-<lastmod>2013-04-20T17:00:22-00:00</lastmod>
+<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://www.khanio.com/tag/blog.html</loc>
+<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://www.khanio.com/tag/nginx.html</loc>
+<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://www.khanio.com/tag/rapidssl.html</loc>
+<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://www.khanio.com/tag/https.html</loc>
+<lastmod>2013-04-20T17:46:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/author/zakiullah-khan-mohammed.html</loc>
-<lastmod>2013-04-20T17:00:22-00:00</lastmod>
+<lastmod>2013-04-20T17:46:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
