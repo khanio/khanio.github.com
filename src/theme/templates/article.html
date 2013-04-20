@@ -11,7 +11,7 @@
 				<h2 class="post-title"><a href="{{ SITEURL }}/{{ article.url }}" title="Permalink to {{ article.title }}" rel="bookmark">{{ article.title }}</a></h2>
 				<div class="meta-wrap">
 					<ul class="meta">
-						<li>By: <a rel="author" href="{{ GOOGLEPLUS_URL }}?rel=author">{{ author }}</a></li>
+						<li>By: <a rel="author" href="{{ GOOGLEPLUS_URL }}?rel=author">{{ article.author }}</a></li>
 						{% if not article.category == 'posts' %}
 						<li>Posted In: <a href="{{ SITEURL }}/{{ article.category.url }}" rel="category">{{ article.category }}</a></li>
 						{% endif %}
