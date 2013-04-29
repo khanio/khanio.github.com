@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://www.khanio.com/index.html</loc>
-<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/archives.html</loc>
-<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/tags.html</loc>
-<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/categories.html</loc>
-<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -60,6 +60,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://www.khanio.com/posts/2013/04/28/linux-containers-for-developers-soul/</loc>
+<lastmod>2013-04-28T23:15:00-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://www.khanio.com/posts/2013/04/20/rapidssl-nginx-web-server-setup/</loc>
 <lastmod>2013-04-20T17:17:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -75,63 +82,98 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://www.khanio.com/category/administration.html</loc>
-<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/category/blog.html</loc>
-<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://www.khanio.com/category/virtualization.html</loc>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/tag/ssl.html</loc>
-<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/tag/helloworld.html</loc>
-<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://www.khanio.com/tag/libvirt.html</loc>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/tag/blog.html</loc>
-<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/tag/nginx.html</loc>
-<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://www.khanio.com/tag/rapidssl.html</loc>
-<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<loc>http://www.khanio.com/tag/lxc.html</loc>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://www.khanio.com/tag/virtualization.html</loc>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/tag/https.html</loc>
-<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://www.khanio.com/tag/ubuntu.html</loc>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://www.khanio.com/tag/rapidssl.html</loc>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://www.khanio.com/author/zakiullah-khan-mohammed.html</loc>
-<lastmod>2013-04-20T17:46:00-00:00</lastmod>
+<lastmod>2013-04-29T09:49:40-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

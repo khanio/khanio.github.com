@@ -10,10 +10,11 @@
         <meta name="description" content="{% block description %}{% endblock %} | {{SITENAME}}">
         <meta name="author" content="{{ AUTHOR }}">
         <meta name="viewport" content="width=device-width, , initial-scale=1.0">
-        <meta name="keywords" content="{% for tag in tag_cloud %}{{ tag.0 }},{% endfor %}">
+
+        {% block keywords %}{% endblock %}
 
         <link rel="author" href="{{ GOOGLE_PLUS_LINK }}"/>
-        
+
         {% if FEED_RSS %}
         <link href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} ATOM Feed" />
         {% endif %}
@@ -75,7 +76,7 @@
 
 		{% include 'analytics.html' %}
 		{% include 'disqus_script.html' %}
-		
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{ SITEURL }}/theme/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
         <script src="{{ SITEURL }}/theme/js/vendor/bootstrap.min.js"></script>
@@ -83,7 +84,7 @@
         <script src="{{ SITEURL }}/theme/js/plugins.js"></script>
         <script src="{{ SITEURL }}/theme/js/main.js"></script>
 
-        {% block customscript %}{% endblock %}    
-        
+        {% block customscript %}{% endblock %}
+
     </body>
 </html>

@@ -2,6 +2,8 @@
 {% block title %}{{article.title}}{% endblock %}
 {% block description %} {{ article.title }}{% endblock %}
 
+{% block keywords %} <meta name="keywords" content="{% for tag in article.tags %}{{ tag }},{% endfor %}">{% endblock %}
+
 {% block content %}
 <article class="post">
 	<div class="box-wrap">

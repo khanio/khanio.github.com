@@ -1,5 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>KhanIO</title><link href="http://www.khanio.com/" rel="alternate"></link><link href="http://www.khanio.com/feeds/all-en.atom.xml" rel="self"></link><id>http://www.khanio.com/</id><updated>2013-04-20T17:17:00+08:00</updated><entry><title>RapidSSL + Nginx Web Server Setup</title><link href="http://www.khanio.com/posts/2013/04/20/rapidssl-nginx-web-server-setup/" rel="alternate"></link><updated>2013-04-20T17:17:00+08:00</updated><author><name>Zakiullah Khan Mohammed</name></author><id>tag:www.khanio.com,2013-04-20:posts/2013/04/20/rapidssl-nginx-web-server-setup/</id><summary type="html">&lt;p&gt;Recently I had to setup a Nginx web server with SSL enabled by default. The underlying operating system of the machine was Ubuntu 12.04 (server edition) and the following steps were taken:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>KhanIO</title><link href="http://www.khanio.com/" rel="alternate"></link><link href="http://www.khanio.com/feeds/all-en.atom.xml" rel="self"></link><id>http://www.khanio.com/</id><updated>2013-04-28T23:15:00+08:00</updated><entry><title>Linux Containers (lxc) For Developer's Soul</title><link href="http://www.khanio.com/posts/2013/04/28/linux-containers-for-developers-soul/" rel="alternate"></link><updated>2013-04-28T23:15:00+08:00</updated><author><name>Zakiullah Khan Mohammed</name></author><id>tag:www.khanio.com,2013-04-28:posts/2013/04/28/linux-containers-for-developers-soul/</id><summary type="html">&lt;p&gt;If you have been using Linux Virtual Machines (VM) on a day to day basis to setup various development environments, one limitation you will notice that the more virtual isntances you spawn the performance of host deteriorates, meaning at times when you need more processing power or memory at host level,it isn't available as needed. This is where Linux Contianers (LXC) steps in, they let you harness all the barebone resources and yet maintain process and filesystem isolation.&lt;/p&gt;
+&lt;p&gt;LXCs are not fit for all situations, but if you are like me whose day to day job is to spawn linux instances and work out different integration scenarios, and only need to isolate processes and filesystem, LXCs tend to do the job. When compared to a VM, LXC is more lightweight, well bootstraped to the host OS and above all easier to maintain and backup. One serious disadvantage of LXC is hardware resource sharing between different contianers, especially hard drive access at same time.&lt;/p&gt;
+&lt;p&gt;Now lets get started, before we move forward, below detailed steps are for Ubuntu 12.04 as host operationg system, if you are using OSX or Windows operating system, you can still give LXC a shot using Virtualbox or VMWare virtual machine, or using vagrant from command line.&lt;/p&gt;
+&lt;p&gt;First lets get lxc and libvirt installed, for this run the following at your command prompt.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;lxc&lt;/span&gt; &lt;span class="n"&gt;libvirt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt; &lt;span class="n"&gt;dnsmasq&lt;/span&gt; &lt;span class="n"&gt;bridge&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;utils&lt;/span&gt; &lt;span class="n"&gt;debootstrap&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once installed successfully, rebooting the machine is required as the network bridge (virbr0) setup by libvirt during installation will be active after reboot. Once you are back to your console after reboot, run the following to see the virtual netwrok bridge details, which is setup by libvirt.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;virsh&lt;/span&gt; &lt;span class="n"&gt;net&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If all looks good, create a sample container with identifier name as &lt;em&gt;sample_cntr&lt;/em&gt;, this will take few mintues to setup depending your internet connection speed. Just like vagrant, lxc allows you to use pre-defined instance templates, and in our case we are using the &lt;em&gt;ubuntu&lt;/em&gt; template.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;lxc&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;ubuntu&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;sample_cntr&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once the container is created, every time you start the container a new IP is assigend to the instance, as we are trying to setup a web server container, it would be advisable to have a static IP address defined for the container. For this we need to edit the container's config file&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lxc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sample_cntr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To allow the container use the libvirt defined default virtual network bridge, edit the following line&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;lxc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;network&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;lxcbr0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;to&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;lxc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;network&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;virbr0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And to have a static IP address assigned every time its starts, add the following line, note the IP address depends on your preference, run &lt;em&gt;ifconfig&lt;/em&gt; before to determine virbr0 network bridge details.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;lxc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;network&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ipv4&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;192.168.122.100&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;24&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now we are done with the house keeping stuff, lets start the container in the background&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;lxc&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;sample_cntr&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now lets get to the container command prompt and setup a nginx web server, for this at your command prompt run&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;lxc&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;console&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;sample_cntr&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You will be prompted for login credentials, for the &lt;em&gt;ubuntu&lt;/em&gt; template container the default username/password is ubuntu/ubuntu. Once successfully logged in, run the following to setup simple nginx web server.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;full&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt; &lt;span class="n"&gt;nginx&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now you can point your browser to the contianer's IP and see the default nginx web page get displayed. To stop the contianer you can do it by running the following at your command prompt.&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;lxc&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;stop&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;sample_cntr&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To move forward you can give a try to dotcloud's &lt;a href="http://docker.io" title="Docker"&gt;docker&lt;/a&gt;, which is like vagrant for linux contianers.&lt;/p&gt;</summary><category term="ubuntu"></category><category term="lxc"></category><category term="libvirt"></category><category term="virtualization"></category></entry><entry><title>RapidSSL + Nginx Web Server Setup</title><link href="http://www.khanio.com/posts/2013/04/20/rapidssl-nginx-web-server-setup/" rel="alternate"></link><updated>2013-04-20T17:17:00+08:00</updated><author><name>Zakiullah Khan Mohammed</name></author><id>tag:www.khanio.com,2013-04-20:posts/2013/04/20/rapidssl-nginx-web-server-setup/</id><summary type="html">&lt;p&gt;Recently I had to setup a Nginx web server with SSL enabled by default. The underlying operating system of the machine was Ubuntu 12.04 (server edition) and the following steps were taken:&lt;/p&gt;
 &lt;p&gt;First generate a new SSL key on the web server, which we will use later to upload on RapidSSL website to generate the required SSL certificate. Make sure you have openssl installed on your Ubuntu server machine and issue the following at the command prompt, considerations made here are, the domain for which we would be setting up SSL here is www.example.com, Country been US, state been California, Location been San Francisco, Organization name been ACME Corp. and fully qualified domain name been www.example.com, you will nee to replace these values with the required ones.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;openssl&lt;/span&gt; &lt;span class="n"&gt;req&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;newkey&lt;/span&gt; &lt;span class="n"&gt;rsa&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;2048&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;nodes&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;out&lt;/span&gt; &lt;span class="n"&gt;www_example_com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;csr&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;keyout&lt;/span&gt; &lt;span class="n"&gt;www_example_com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;subj&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;/C=US/ST=CA/L=San Francisco/O=ACME Corp./CN=www.example.com&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
