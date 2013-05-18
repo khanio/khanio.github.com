@@ -114,3 +114,9 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;If all goes well you should now be able to use access the web server using https. Also if the web server is an AWS EC2 instance make sure to enable https port (443) on outbound in the required security group.&lt;/p&gt;</summary><category term="nginx"></category><category term="rapidssl"></category><category term="https"></category><category term="ssl"></category></entry><entry><title>Hello World</title><link href="http://www.khanio.com/posts/2013/04/09/hello-world/" rel="alternate"></link><updated>2013-04-09T17:10:00+08:00</updated><author><name>Zakiullah Khan Mohammed</name></author><id>tag:www.khanio.com,2013-04-09:posts/2013/04/09/hello-world/</id><summary type="html">&lt;p&gt;This is my first post!! A classic&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello world!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;See you soon ;)&lt;/p&gt;</summary><category term="helloworld"></category><category term="blog"></category></entry></feed>
