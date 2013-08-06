@@ -12,7 +12,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Now we will need to configure Nginx to use by default SSL and divert http traffic on port 80 to 443 (default SSL port). issue th following at the command prompt and replace the contents of &lt;em&gt;default&lt;/em&gt; Nginx config with below one. &lt;/p&gt;
+&lt;p&gt;Now we will need to configure Nginx to use by default SSL and divert http traffic on port 80 to 443 (default SSL port). issue th following at the command prompt and replace the contents of &lt;em&gt;default&lt;/em&gt; Nginx config with below one.&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;nano&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sites&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;available&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;default&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 

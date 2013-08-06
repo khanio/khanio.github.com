@@ -1,7 +1,7 @@
 Title: RapidSSL + Nginx Web Server Setup
 Date: 2013-04-20 17:17
 Tags: nginx, rapidssl, https, ssl
-Category: Administration
+Category: Servers
 Slug: rapidssl-nginx-web-server-setup
 Author: Zakiullah Khan Mohammed
 Summary: This post highlights the steps need to be taken to enable SSL support in Nginx.
@@ -19,7 +19,7 @@ Once this is done now issue the following at the command prompt:
 	>sudo cp www_example_com.pem /etc/ssl/cert/www_example_com.pem
 	>sudo cp www_example_com.key /etc/ssl/key/www_example_com.key
 
-Now we will need to configure Nginx to use by default SSL and divert http traffic on port 80 to 443 (default SSL port). issue th following at the command prompt and replace the contents of _default_ Nginx config with below one. 
+Now we will need to configure Nginx to use by default SSL and divert http traffic on port 80 to 443 (default SSL port). issue th following at the command prompt and replace the contents of _default_ Nginx config with below one.
 
 	>sudo nano /etc/nginx/sites-available/default
 
