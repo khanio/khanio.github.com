@@ -7,12 +7,12 @@
         <meta name="google-site-verification" content="L8OLSpY6pIJvhyY-eXyahPvGOztcYUxdbgHs-o5UoEM" />
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>AWS | KhanIO via @khan_io</title>
-        <meta name="description" content="Blog posts in a category AWS  | KhanIO">
+        <title>Demystifying Data Centric Consistency Models - Part 1 | KhanIO via @khan_io</title>
+        <meta name="description" content=" Demystifying Data Centric Consistency Models - Part 1 | KhanIO">
         <meta name="author" content="Zakiullah Khan Mohammed">
         <meta name="viewport" content="width=device-width, , initial-scale=1.0">
 
-        
+         <meta name="keywords" content="distributed,datastores,">
         <link rel="author" href="https://plus.google.com/110264619019212538944/"/>
 
                 <link href="http://www.khanio.com/" type="application/atom+xml" rel="alternate" title="KhanIO ATOM Feed" />
@@ -58,21 +58,74 @@
 	<div class="box-wrap">
 		<div class="box">
 			<header>
-				<h2 class="post-title"><a href="http://www.khanio.com/category/AWS.html" title="Permalink to AWS" rel="bookmark">Category: AWS</a></h2>
-			</header>
-			<div class="post-content">
-				<div class="archive-box">
-					<ul>
-												<li><a href="http://www.khanio.com/posts/2013/08/03/designing-big-data-solutions-using-aws/"><span class="archive-post-date">Aug 03, 2013</span>&nbsp&nbspDesigning Big Data Solutions Using AWS</a></li>
+				<div class="date-title" title="2013-05-15T09:00:00">May 15, 2013</div>
+				<h2 class="post-title"><a href="http://www.khanio.com/posts/2013/05/15/demystifying-data-centric-consistency-models-part-1/" title="Permalink to Demystifying Data Centric Consistency Models - Part 1" rel="bookmark">Demystifying Data Centric Consistency Models - Part 1</a></h2>
+				<div class="meta-wrap">
+					<ul class="meta">
+						<li>By: <a rel="author" href="https://plus.google.com/110264619019212538944?rel=author">Zakiullah Khan Mohammed</a></li>
+												<li>Posted In: <a href="http://www.khanio.com/category/distributed-computing.html" rel="category">Distributed Computing</a></li>
+																		<li>Tagged In: <a href="http://www.khanio.com/tag/distributed.html" rel="tag">distributed</a>&nbsp&nbsp <a href="http://www.khanio.com/tag/datastores.html" rel="tag">datastores</a>&nbsp&nbsp</li>
 											</ul>
 				</div>
+			</header>
+
+			<!--<a class="featured-image" href="" title="" rel="bookmark"><img width="1200" height="600" src="http://cdn3.okaythemes.com/verb/files/2013/01/feet.jpg" alt="feet"></a>-->
+			<div class="post-content">
+				<p class="article-summary">Consistency & Replication strategies are crucial aspect of distributed datastores. In a two a part blog post series, introduction to data centric consistency models would be done. This part would cover what consistency model means, classification and deal with explicit synchronization models in particular.</p>
+				<p><p>Before we move further, I think its better to understand certain terminology which is common to any distributedd system.</p>
+<ul>
+<li>
+<p><strong>Availablity</strong>: portion of time for which a service would be accessible.</p>
+</li>
+<li>
+<p><strong>Faul Tolerance</strong>: guarantees strictly correct behaviour despite a certain type and number of faults.</p>
+</li>
+<li>
+<p><strong>Replication</strong>: storing multiple physical copies of a single logical data item (object).</p>
+</li>
+<li>
+<p><strong>Concurrency</strong>: its a property of system in which several computations are executing simultaneaously and potentially interacting with each other.</p>
+</li>
+</ul>
+<p>Consistency model is basically defined as a contract between a (distributed) data store and processes, in which the data store specifices what the result of the read and write operations are in the presence of concurrency. Consistency models can be further divided into data-centric and client-centric. This post focusses only on data-centric models, and in coming time I would write about client-centric models too.</p>
+<p>Data centric Consistency models can be further divided into models where there are no explicity synchronization operations and models where there are explicit synchronization operations. This post would cover various types of data-centric consistency models where there are no explicit synchronization operations. And the next coming post would cover the later types.</p>
+<p>When dealing with systems which adhere to no explicit synchronization operations, different types of consistency models prevail, namely:</p>
+<ul>
+<li>
+<p><strong>Strict</strong>: absolute time ordering of all shared accesses matters.</p>
+</li>
+<li>
+<p><strong>Lienarizability</strong>: all processes must see all shared accesses in the same oreder. Accessess are furthermore ordered according to a (non-unique) global timestamp.</p>
+</li>
+<li>
+<p><strong>Sequential</strong>: all process see all shared accessess in the same order. Accesses are not ordered in time.</p>
+</li>
+<li>
+<p><strong>Casual</strong>: all processes see casually-realted shared accessess in same order.</p>
+</li>
+<li>
+<p><strong>FIFO</strong>: all processes see writes from each other in the order they were used. Writes from different processes man not always be seen in that order.</p>
+</li>
+</ul></p>
 			</div>
 			<div class="post-navigation-wrap">
 				<ul class="post-navigation clearfix">
 					<li><a href="http://www.khanio.com" rel="prev"><strong><i class="icon-arrow-left"></i></strong>&nbsp&nbspBack to Blog</a></li>
 				</ul>
 			</div>
-		</div>
+						<div class="post-comments">
+				<div id="disqus_thread"></div>
+				<script type="text/javascript">
+					var disqus_identifier = "posts/2013/05/15/demystifying-data-centric-consistency-models-part-1/";
+					(function() {
+						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = 'http://khanio.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+				</script>
+				<noscript>Please enable JavaScript to view <a href="http://disqus.com/?ref_noscript">comments</a>.</noscript>
+			</div>
+					</div>
 	</div>
 </article>
 				</div>

@@ -66,6 +66,7 @@ DISPLAY_PAGES_ON_MENU = False
 
 FILES_TO_COPY = (
     ('extra/public.key', 'files/public.key'),
+    ('extra/Resume_Public.pdf', 'files/Resume_Public.pdf'),
     ('extra/robots.txt', 'robots.txt'),
     ('extra/humans.txt', 'humans.txt'),
     ('extra/CNAME', 'CNAME'),
@@ -82,8 +83,6 @@ FILES_TO_COPY = (
 
 MENUITEMS = (
 	('Home','htp://localhost:8000/index.html'),
-#	('Resume', 'pages/resume.html'),
-#	('Projects', 'pages/projects.html'),
 	('Archive', 'http://localhost:8000/archives.html'),
   ('Subscribe', 'http://feeds.feedburner.com/Khanio'),
 )
