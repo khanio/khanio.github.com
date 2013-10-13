@@ -1,1 +1,0 @@
-KhanIO.com by Zakiullah Khan Mohammed is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License. Based on a work at https://github.com/khanio/khanio.github.com.
