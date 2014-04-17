@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta name="google-site-verification" content="L8OLSpY6pIJvhyY-eXyahPvGOztcYUxdbgHs-o5UoEM" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>RapidSSL + Nginx Web Server Setup | KhanIO via @khan_io</title>
+        <meta name="description" content=" RapidSSL + Nginx Web Server Setup | KhanIO">
+        <meta name="author" content="Zakiullah Khan Mohammed">
+        <meta name="viewport" content="width=device-width, , initial-scale=1.0">
+
+         <meta name="keywords" content="nginx,rapidssl,https,ssl,">
+        <link rel="author" href="https://plus.google.com/110264619019212538944/"/>
+
+                <link href="../../../../../" type="application/atom+xml" rel="alternate" title="KhanIO ATOM Feed" />
+            	    	<link href="../../../../../feeds/all.rss.xml" type="application/atom+xml" rel="alternate" title="KhanIO RSS Feed" />
+    	
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="../../../../../theme/css/bootstrap.min.css"/>
+
+        <script src="../../../../../theme/js/vendor/modernizr-2.6.2.min.js"></script>
+
+        <script type="text/javascript">
+          (function() {
+            var config = {
+              kitId: 'jku8iuj',
+              scriptTimeout: 3000
+            };
+            var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+          })();
+        </script>
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="navbar navbar-inverse">
+		  <div class="navbar-inner">
+		  	<div class="container-narrow" itemscope itemtype="http://data-vocabulary.org/Person">
+		  		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+      			</a>
+      			<a rel="publisher" class="brand pull-left" href="" itemprop="url"><img class="img-circle" src="../../../../../theme/img/khanio_128.jpg" width="64px" height="64px" alt="">&nbsp&nbsp <span itemprop="name"> Zakiullah Khan Mohammed</span></a>
+      			<div class="nav-collapse collapse">
+	        		<ul class="nav pull-right">
+	        			                  <li><a href="htp://localhost:8000/index.html" itemprop="url">Home</a></li>
+                                  <li><a href="http://localhost:8000/archives.html" itemprop="url">Archive</a></li>
+                                  <li><a href="http://feeds.feedburner.com/Khanio" itemprop="url">Subscribe</a></li>
+                	        		</ul>
+      			</div>
+		  	</div>
+		  </div>
+		</div>
+
+		<div class="container-narrow">
+			<div class="row-fluid">
+				<div id="content" class="span9">
+					<article class="post">
+	<div class="box-wrap">
+		<div class="box">
+			<header>
+				<div class="date-title" title="2013-04-20T17:17:00">Apr 20, 2013</div>
+				<h2 class="post-title"><a href="../../../../../posts/2013/04/20/rapidssl-nginx-web-server-setup/" title="Permalink to RapidSSL + Nginx Web Server Setup" rel="bookmark">RapidSSL + Nginx Web Server Setup</a></h2>
+				<div class="meta-wrap">
+					<ul class="meta">
+						<li>By: <a rel="author" href="?rel=author">Zakiullah Khan Mohammed</a></li>
+												<li>Posted In: <a href="../../../../../category/servers.html" rel="category">Servers</a></li>
+																		<li>Tagged In: <a href="../../../../../tag/nginx.html" rel="tag">nginx</a>&nbsp&nbsp <a href="../../../../../tag/rapidssl.html" rel="tag">rapidssl</a>&nbsp&nbsp <a href="../../../../../tag/https.html" rel="tag">https</a>&nbsp&nbsp <a href="../../../../../tag/ssl.html" rel="tag">ssl</a>&nbsp&nbsp</li>
+											</ul>
+				</div>
+			</header>
+
+			<!--<a class="featured-image" href="" title="" rel="bookmark"><img width="1200" height="600" src="http://cdn3.okaythemes.com/verb/files/2013/01/feet.jpg" alt="feet"></a>-->
+			<div class="post-content">
+				<p class="article-summary">This post highlights the steps need to be taken to enable SSL support in Nginx.</p>
+				<p><p>Recently I had to setup a Nginx web server with SSL enabled by default. The underlying operating system of the machine was Ubuntu 12.04 (server edition) and the following steps were taken:</p>
+<p>First generate a new SSL key on the web server, which we will use later to upload on RapidSSL website to generate the required SSL certificate. Make sure you have openssl installed on your Ubuntu server machine and issue the following at the command prompt, considerations made here are, the domain for which we would be setting up SSL here is www.example.com, Country been US, state been California, Location been San Francisco, Organization name been ACME Corp. and fully qualified domain name been www.example.com, you will nee to replace these values with the required ones.</p>
+<div class="codehilite"><pre><span class="o">&gt;</span><span class="n">openssl</span> <span class="n">req</span> <span class="o">-</span><span class="n">new</span> <span class="o">-</span><span class="n">newkey</span> <span class="n">rsa</span><span class="o">:</span><span class="mi">2048</span> <span class="o">-</span><span class="n">nodes</span> <span class="o">-</span><span class="n">out</span> <span class="n">www_example_com</span><span class="p">.</span><span class="n">csr</span> <span class="o">-</span><span class="n">keyout</span> <span class="n">www_example_com</span><span class="p">.</span><span class="n">key</span> <span class="o">-</span><span class="n">subj</span> <span class="s">&quot;/C=US/ST=CA/L=San Francisco/O=ACME Corp./CN=www.example.com&quot;</span>
+</pre></div>
+
+
+<p>Next head to RapidSSL website and opt to purcahse single domain SSL certificate, you will be required to upload the www_example_com.csr file at the first step, and after successful checkout, you will receive an email from RapidSSL witht he reqired certificates text embedded within the email body. Copy the received text into a file called www_example_com.pem.</p>
+<p>Once this is done now issue the following at the command prompt:</p>
+<div class="codehilite"><pre><span class="o">&gt;</span><span class="n">sudo</span> <span class="n">cp</span> <span class="n">www_example_com</span><span class="p">.</span><span class="n">pem</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">cert</span><span class="o">/</span><span class="n">www_example_com</span><span class="p">.</span><span class="n">pem</span>
+<span class="o">&gt;</span><span class="n">sudo</span> <span class="n">cp</span> <span class="n">www_example_com</span><span class="p">.</span><span class="n">key</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">key</span><span class="o">/</span><span class="n">www_example_com</span><span class="p">.</span><span class="n">key</span>
+</pre></div>
+
+
+<p>Now we will need to configure Nginx to use by default SSL and divert http traffic on port 80 to 443 (default SSL port). issue th following at the command prompt and replace the contents of <em>default</em> Nginx config with below one.</p>
+<div class="codehilite"><pre><span class="o">&gt;</span><span class="n">sudo</span> <span class="n">nano</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/</span><span class="k">default</span>
+</pre></div>
+
+
+<p>Once file opened, delete all content and add the below configuration:</p>
+<div class="codehilite"><pre><span class="n">server</span> <span class="p">{</span>
+    <span class="n">listen</span> <span class="mi">80</span><span class="p">;</span>
+    <span class="n">listen</span> <span class="mi">443</span> <span class="k">default</span> <span class="n">ssl</span><span class="p">;</span>
+
+    <span class="n">server_name</span> <span class="n">www</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="p">;</span>
+
+    <span class="n">root</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">nginx</span><span class="p">.</span><span class="n">html</span><span class="p">;</span>
+    <span class="n">index</span> <span class="n">index</span><span class="p">.</span><span class="n">html</span> <span class="n">index</span><span class="p">.</span><span class="n">htm</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="err">$</span><span class="n">scheme</span> <span class="o">=</span> <span class="n">http</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">rewrite</span> <span class="o">^</span> <span class="n">https</span><span class="o">:</span><span class="c1">//$server_name$request_uri permanent;</span>
+    <span class="p">}</span>
+
+    <span class="n">ssl_certificate</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">certs</span><span class="o">/</span><span class="n">www_example_com</span><span class="p">.</span><span class="n">pem</span><span class="p">;</span>
+    <span class="n">ssl_certificate_key</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">www_example_com</span><span class="p">.</span><span class="n">key</span><span class="p">;</span>
+
+    <span class="n">ssl_session_timeout</span> <span class="mi">5</span><span class="n">m</span><span class="p">;</span>
+
+    <span class="n">ssl_protocols</span> <span class="n">SSLv3</span> <span class="n">TLSv1</span><span class="p">;</span>
+    <span class="n">ssl_ciphers</span> <span class="n">ALL</span><span class="o">:!</span><span class="n">ADH</span><span class="o">:!</span><span class="n">EXPORT56</span><span class="o">:</span><span class="n">RC4</span><span class="o">+</span><span class="n">RSA</span><span class="o">:+</span><span class="n">HIGH</span><span class="o">:+</span><span class="n">MEDIUM</span><span class="o">:+</span><span class="n">LOW</span><span class="o">:+</span><span class="n">SSLv3</span><span class="o">:+</span><span class="n">EXP</span><span class="p">;</span>
+    <span class="n">ssl_prefer_server_ciphers</span> <span class="n">on</span><span class="p">;</span>
+
+    <span class="n">access_log</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">nginx</span><span class="p">.</span><span class="n">www_example_com</span><span class="p">.</span><span class="n">access</span><span class="p">.</span><span class="n">log</span><span class="p">;</span>
+    <span class="n">error_log</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">nginx</span><span class="p">.</span><span class="n">www_example_com</span><span class="p">.</span><span class="n">error</span><span class="p">.</span><span class="n">log</span><span class="p">;</span>
+
+    <span class="n">location</span> <span class="o">/</span> <span class="p">{</span>
+        <span class="n">try_files</span> <span class="err">$</span><span class="n">uri</span> <span class="err">$</span><span class="n">uri</span><span class="o">/</span> <span class="o">/</span><span class="n">index</span><span class="p">.</span><span class="n">html</span> <span class="o">=</span><span class="mi">404</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Once done save it and restart nginx.</p>
+<div class="codehilite"><pre><span class="o">&gt;</span><span class="n">sudo</span> <span class="n">service</span> <span class="n">nginx</span> <span class="n">restart</span>
+</pre></div>
+
+
+<p>If all goes well you should now be able to use access the web server using https. Also if the web server is an AWS EC2 instance make sure to enable https port (443) on outbound in the required security group.</p></p>
+			</div>
+			<div class="post-navigation-wrap">
+				<ul class="post-navigation clearfix">
+					<li><a href="../../../../.." rel="prev"><strong><i class="icon-arrow-left"></i></strong>&nbsp&nbspBack to Blog</a></li>
+				</ul>
+			</div>
+						<div class="post-comments">
+				<div id="disqus_thread"></div>
+				<script type="text/javascript">
+					var disqus_identifier = "posts/2013/04/20/rapidssl-nginx-web-server-setup/";
+					(function() {
+						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = 'http://khanio.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+				</script>
+				<noscript>Please enable JavaScript to view <a href="http://disqus.com/?ref_noscript">comments</a>.</noscript>
+			</div>
+					</div>
+	</div>
+</article>
+				</div>
+				<div id="sidebar" class="span3">
+					<div class="widget">
+  <h6 class="widgettitle">Resume</h6>
+  <p>"If you call failures experiments, you can put them in your resume and claim them as achievements." - Mason Cooley</p>
+  <a href="../../../../../files/Resume_Public.pdf" target="_blank">Download</a>
+</div>
+
+<div class="widget">
+	<h6 class="widgettitle">Public GPG Key</h6>
+	<p>For all sensitive data transfer kindly use the linked key.</p>
+	<a href="../../../../../files/public.key">00CF0BDD</a>
+</div>
+
+<div class="widget">
+	<h6 class="widgettitle">Social</h6>
+	<ul class="social-cloud">
+					<li><a href="https://angel.co/khanio" target="_blank">AngelList</a></li>
+					<li><a href="mailto:mail@khanio.com" target="_blank">Email</a></li>
+					<li><a href="https://facebook.com/zkhanio" target="_blank">Facebook</a></li>
+					<li><a href="https://github.com/khanio" target="_blank">GitHub</a></li>
+					<li><a href="https://plus.google.com/110264619019212538944" target="_blank">Google +</a></li>
+					<li><a href="https://instagram.com/khanio" target="_blank">Instagram</a></li>
+					<li><a href="https://linkedin.com/in/khanio" target="_blank">LinkedIn</a></li>
+					<li><a href="https://pinterest.com/khanio" target="_blank">Pinterest</a></li>
+					<li><a href="https://speakerdeck.com/khanio" target="_blank">SpeakerDeck</a></li>
+					<li><a href="https://twitter.com/khan_io" target="_blank">Twitter</a></li>
+					<li><a href="https://vimeo.com/khanio" target="_blank">Vimeo</a></li>
+			</ul>
+</div>
+
+<div class="widget">
+	<h6 class="widgettitle">Categories</h6>
+	<ul>
+					<li><a href="../../../../../category/servers.html">Servers</a></li>
+					<li><a href="../../../../../category/blog.html">Blog</a></li>
+					<li><a href="../../../../../category/virtualization.html">Virtualization</a></li>
+					<li><a href="../../../../../category/self-help.html">self-help</a></li>
+					<li><a href="../../../../../category/aws.html">AWS</a></li>
+			</ul>
+</div>
+
+<div class="widget">
+	<h6 class="widgettitle">Tags</h6>
+	<ul class="tag-cloud">
+					<li><a href="../../../../../tag/nginx.html">nginx</a></li>
+					<li><a href="../../../../../tag/rapidssl.html">rapidssl</a></li>
+					<li><a href="../../../../../tag/ssl.html">ssl</a></li>
+					<li><a href="../../../../../tag/https.html">https</a></li>
+					<li><a href="../../../../../tag/helloworld.html">helloworld</a></li>
+					<li><a href="../../../../../tag/blog.html">blog</a></li>
+					<li><a href="../../../../../tag/ubuntu.html">ubuntu</a></li>
+					<li><a href="../../../../../tag/lxc.html">lxc</a></li>
+					<li><a href="../../../../../tag/libvirt.html">libvirt</a></li>
+					<li><a href="../../../../../tag/virtualization.html">virtualization</a></li>
+					<li><a href="../../../../../tag/doh.html">doh</a></li>
+					<li><a href="../../../../../tag/entrepreneurship.html">entrepreneurship</a></li>
+					<li><a href="../../../../../tag/self-help.html">self-help</a></li>
+					<li><a href="../../../../../tag/cloud.html">cloud</a></li>
+					<li><a href="../../../../../tag/aws.html">aws</a></li>
+					<li><a href="../../../../../tag/hadoop.html">hadoop</a></li>
+					<li><a href="../../../../../tag/aws-emr.html">aws emr</a></li>
+			</ul>
+</div>
+
+<div class="widget last-widget">
+	<h6 class="widgettitle">Blogroll</h6>
+	<ul>
+					<li><a href="http://jinja.pocoo.org" target="_blank">Jinja2</a></li>
+					<li><a href="http://docs.notmyidea.org/alexis/pelican/" target="_blank">Pelican</a></li>
+					<li><a href="http://python.org" target="_blank">Python.org</a></li>
+			</ul>
+</div>
+				</div>
+			</div>
+			<div class="row-fluid" style="margin-top: 1.5em;">
+				<div class="span12">
+					<footer>
+						Copyright &#169 2013. All Rights Reserved
+					</footer>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("UA-40023432-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+		<script type="text/javascript">
+    var disqus_shortname = 'khanio';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../../../../theme/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="../../../../../theme/js/vendor/bootstrap.min.js"></script>
+        <script src="../../../../../theme/js/vendor/retina.min.js"></script>
+        <script src="../../../../../theme/js/plugins.js"></script>
+        <script src="../../../../../theme/js/main.js"></script>
+
+        
+    </body>
+</html>
