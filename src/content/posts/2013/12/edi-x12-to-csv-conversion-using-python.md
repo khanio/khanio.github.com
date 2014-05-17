@@ -1,5 +1,5 @@
 Title: EDI X12 to CSV Conversion Using Python
-Date: 2013-10-13 09:00
+Date: 2013-12-10 09:00
 Tags: python
 Category: Programming
 Slug: edi-x12-to-csv-conversion-using-python
