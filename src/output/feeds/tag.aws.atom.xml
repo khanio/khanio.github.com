@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>KhanIO</title><link href="http://www.khanio.com/" rel="alternate"></link><link href="http://www.khanio.com/feeds/tag.aws.atom.xml" rel="self"></link><id>http://www.khanio.com/</id><updated>2013-08-29T10:15:00+08:00</updated><entry><title>AWS Summit 2013 Singapore</title><link href="http://www.khanio.com/posts/2013/08/29/aws-summit-2013-singapore/" rel="alternate"></link><updated>2013-08-29T10:15:00+08:00</updated><author><name>Zakiullah Khan Mohammed</name></author><id>tag:www.khanio.com,2013-08-29:posts/2013/08/29/aws-summit-2013-singapore/</id><summary type="html">&lt;p&gt;&lt;img src="https://lh4.googleusercontent.com/-23it94guKiY/UfSaPNR3kxI/AAAAAAAAATc/UVc2Vd1eUHo/w1356-h905-no/DSC_5352.jpg" width="100%" height="400"&gt;&lt;/p&gt;
-&lt;h4&gt;With Dr. Werner Vogels, CTO @ Amazon&lt;/h4&gt;
+&lt;h5&gt;With Dr. Werner Vogels, CTO @ Amazon&lt;/h5&gt;
 
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://lh4.googleusercontent.com/-4A4JdNbD3ME/UfSaPFQbWhI/AAAAAAAAATg/pxej6pEcZ30/w1356-h905-no/DSC_5354.jpg" width="100%" height="400"&gt;&lt;/p&gt;
-&lt;h4&gt;With Jeff Barr and John Fitzpatrick.&lt;/h4&gt;
+&lt;h5&gt;With Jeff Barr and John Fitzpatrick.&lt;/h5&gt;
 
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://lh3.googleusercontent.com/-wz7_QZbxhU0/UfSaPHY0VvI/AAAAAAAAATY/H_2dqhx50Ns/w1356-h905-no/DSC_5358.jpg" width="100%" height="400"&gt;&lt;/p&gt;
-&lt;h4&gt; With Jeff Barr, Pricipal Evangelist @ AWS&lt;/h4&gt;</summary><category term="cloud"></category><category term="aws"></category></entry><entry><title>Designing Big Data Solutions Using AWS</title><link href="http://www.khanio.com/posts/2013/08/03/designing-big-data-solutions-using-aws/" rel="alternate"></link><updated>2013-08-03T09:00:00+08:00</updated><author><name>Zakiullah Khan Mohammed</name></author><id>tag:www.khanio.com,2013-08-03:posts/2013/08/03/designing-big-data-solutions-using-aws/</id><summary type="html">&lt;script async class="speakerdeck-embed" data-id="541a1780dcfb0130eb6242f2a6d35442" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;
+&lt;h5&gt; With Jeff Barr, Pricipal Evangelist @ AWS&lt;/h5&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;</summary><category term="cloud"></category><category term="aws"></category></entry><entry><title>Designing Big Data Solutions Using AWS</title><link href="http://www.khanio.com/posts/2013/08/03/designing-big-data-solutions-using-aws/" rel="alternate"></link><updated>2013-08-03T09:00:00+08:00</updated><author><name>Zakiullah Khan Mohammed</name></author><id>tag:www.khanio.com,2013-08-03:posts/2013/08/03/designing-big-data-solutions-using-aws/</id><summary type="html">&lt;script async class="speakerdeck-embed" data-id="541a1780dcfb0130eb6242f2a6d35442" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;
 
 &lt;p&gt;&lt;embed type="application/x-shockwave-flash" src="https://static.googleusercontent.com/external_content/picasaweb.googleusercontent.com/slideshow.swf" width="100%" height="400" flashvars="host=picasaweb.google.com&amp;hl=en_US&amp;feat=flashalbum&amp;RGB=0x000000&amp;feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2F110264619019212538944%2Falbumid%2F5907197101000778225%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" pluginspage="http://www.macromedia.com/go/getflashplayer"&gt;&lt;/embed&gt;&lt;/p&gt;
 &lt;p&gt;Here is the link &lt;a href="http://j.mp/1eoOFxU"&gt;Step-by-Step Guide to get started with Hive on Amazon EMR&lt;/a&gt; which I had refered during the talk, for you to continue further developing on the Hive Example. More on Hadoop and AWS to follow up on this blog soon, maybe in screencast form.&lt;/p&gt;</summary><category term="cloud"></category><category term="aws"></category><category term="hadoop"></category><category term="aws emr"></category></entry></feed>
