@@ -4,4 +4,5 @@ Tags: distributed, computing
 Category: Distributed Computing
 Slug: demystifying-consistency-models-part-2
 Author: Zakiullah Khan Mohammed
+status: draft
 Summary: TBD
