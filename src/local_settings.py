@@ -38,7 +38,7 @@ SOCIAL = (('Twitter', 'https://twitter.com/khan_io'),
           ('Vimeo','https://vimeo.com/khanio'),
           ('SpeakerDeck','https://speakerdeck.com/khanio'),)
 
-DEFAULT_PAGINATION = 5
+DEFAULT_PAGINATION = 2
 
 FEED_DOMAIN = SITEURL
 FEED_RSS = 'feeds/all.rss.xml'
