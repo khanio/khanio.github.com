@@ -8,7 +8,7 @@
 		{% endif %}
 	{% endif %}
 	{% if articles_page.has_next() %}
-		<a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html" class="button_accent" style="position: absolute; right: 0;">Older Posts&nbsp;&nbsp;&nbsp;&rarr;</a>
+		<a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html" class="button_accent">Older Posts&nbsp;&nbsp;&nbsp;&rarr;</a>
 	{% endif %}
 </div>
 {% endif %}
