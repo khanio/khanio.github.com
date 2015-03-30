@@ -7,4 +7,4 @@ def compile():
 	local('recess --compress theme/static/less/bootstrap.less > theme/static/css/bootstrap.min.css && make html');
 
 def publish():
-	local('recess --compress theme/static/less/bootstrap.less > theme/static/css/bootstrap.min.css && make publish && cp -rf output/* ../ && cd .. && git add . && git commit -m "Updated" && git push -u origin master && cd src');
+	local('recess --compress theme/static/less/bootstrap.less > theme/static/css/bootstrap.min.css && make publish && cp -rf output/* ../ && cd .. && git add .  && git commit -m "Updated" && git push -u origin master && cd src');
