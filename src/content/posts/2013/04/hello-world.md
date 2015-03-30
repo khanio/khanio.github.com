@@ -5,6 +5,7 @@ Category: Blog
 Slug: hello-world
 Author: Zakiullah Khan Mohammed
 Summary: Aloha Earthlings !! I'm back ! This time with a new blog, new URL and a one-post-a-week goal.
+status: draft
 
 This is my first post!! A classic
 
