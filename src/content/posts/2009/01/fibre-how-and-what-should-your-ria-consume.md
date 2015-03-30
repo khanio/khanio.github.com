@@ -1,7 +1,7 @@
 Title: Fibre: How & what should your RIA consume ?
 Date: 2009-01-13 09:00
-Tags: fibre, adobe, blazeds, livecycle
-Category: Programming, ActionScript
+Tags: fibre, adobe, blazeds, livecycle, actionscript, ria
+Category: Programming
 Slug: fibre-how-and-what-should-your-ria-consume
 Author: Zakiullah Khan Mohammed
 Summary: This is a follow-up of my recent talk on same topic at The Actionscript Conference 2009, Singapore.
